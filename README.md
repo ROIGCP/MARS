@@ -3,7 +3,7 @@ Monitoring, Auditing and Reporting System (MARS)\
 NOTE: there seems to be a bug in one of the dependancies for Apache Beam.\
 I've updated the `requirements.txt` to pin `apache-beam[gcp]==2.8.0` which will resolve the issue.
  
-## Clone in the Repo
+## Clone in the Repo (example using Google Cloud Shell.)
 Open Cloud Shell\
 Clone in the `https://github.com/ROIGCP/Mars` repo\
     `Command: git clone https://github.com/ROIGCP/Mars`\
