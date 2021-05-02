@@ -25,7 +25,7 @@ def run():
     ]
 
     p = beam.Pipeline(argv=argv)
-    input = 'gs://moonbank-mars-sample/*.csv'
+    input = 'gs://roi-mars/sample/*.csv'
     output = 'gs://' + bucketname + '/output/output'
 
     (p
