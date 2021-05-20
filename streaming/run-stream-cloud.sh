@@ -4,4 +4,4 @@ echo $GOOGLE_CLOUD_PROJECT
 
 sudo pip3 install -r requirements.txt
 rm -R output
-python3 mars-stream-local.py
+python3 mars-stream-cloud.py

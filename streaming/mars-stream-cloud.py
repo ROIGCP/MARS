@@ -2,39 +2,38 @@
 import apache_beam as beam
 import os
 import datetime
-import csv
-
 
 def processline(line):
-    yield line
+    outputrow = {'message' : line}
+    yield outputrow
 
 
 def run():
     projectname = os.getenv('GOOGLE_CLOUD_PROJECT')
     bucketname = os.getenv('GOOGLE_CLOUD_PROJECT') + '-bucket'
-    subscription = 'projects/' + projectname + '/subscriptions/mars-activities'
-    jobname = 'mars-job' + datetime.datetime.now().strftime("%Y%m%d%H%m")
+    jobname = 'mars-job-' + datetime.datetime.now().strftime("%Y%m%d%H%m")
     region = 'us-central1'
 
     argv = [
+      '--streaming',
       '--runner=DataflowRunner',
       '--project=' + projectname,
       '--job_name=' + jobname,
       '--region=' + region,
-      '--streaming',
       '--staging_location=gs://' + bucketname + '/staging/',
       '--temp_location=gs://' + bucketname + '/temploc/',
       '--save_main_session'
     ]
 
     p = beam.Pipeline(argv=argv)
-    topic = 'projects/' + projectname + '/topics/newactivities'
-    output = 'gs://' + bucketname + '/output/output'
-
+    subscription = "projects/" + projectname + "/subscriptions/mars-activities"
+    outputtable = projectname + ":mars.raw"
+    
+    print("Starting Beam Job - next step start the pipeline")
     (p
-     | 'Read Pubsub' >> beam.io.ReadFromPubSub(subscription=subscription).with_output_types(bytes)
+     | 'Read Messages' >> beam.io.ReadFromPubSub(subscription=subscription)
      | 'Process Lines' >> beam.FlatMap(lambda line: processline(line))
-     | 'Write Output to New PubSub Topic' >> beam.io.WriteToPubSub(topic=topic)
+     | 'Write Output' >> beam.io.WriteToBigQuery(outputtable)
      )
     p.run()
 
