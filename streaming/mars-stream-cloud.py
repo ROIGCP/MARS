@@ -11,7 +11,7 @@ def processline(line):
 def run():
     projectname = os.getenv('GOOGLE_CLOUD_PROJECT')
     bucketname = os.getenv('GOOGLE_CLOUD_PROJECT') + '-bucket'
-    jobname = 'mars-job-' + datetime.datetime.now().strftime("%Y%m%d%H%m")
+    jobname = 'mars-job-' + datetime.datetime.now().strftime("%Y%m%d%H%M")
     region = 'us-central1'
 
     argv = [
