@@ -27,6 +27,7 @@ def run():
 
     p = beam.Pipeline(argv=argv)
     input = 'gs://mars-sample/*.csv'
+    # input = 'gs://mars-production/*.csv'
     output = 'gs://' + bucketname + '/output/output'
 
     (p
