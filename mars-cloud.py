@@ -21,6 +21,7 @@ def run():
       '--region=' + region,
       '--staging_location=gs://' + bucketname + '/staging/',
       '--temp_location=gs://' + bucketname + '/temploc/',
+      '--max_num_workers=4',
       '--save_main_session'
     ]
 
