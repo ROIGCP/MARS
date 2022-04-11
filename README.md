@@ -42,7 +42,7 @@ Command: `./run-cloud.sh`
 
 Buckets with Moonbank Data\
 Sample Data Bucket (7x small files): `gs://mars-sample`\
-Production Data Bucket (30x larger files): `gs://mars-production`
+Production Data Bucket (300+ larger files): `gs://mars-production`
 
 ## Data Studio Dashboard 
 Make a Copy of this Data Studio Dashboard and adjust to your project.dataset.table\
