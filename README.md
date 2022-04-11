@@ -59,7 +59,7 @@ Command: `bq mk mars`\
 Command: `bq mk --schema message:STRING -t mars.raw`
 
 Subscribe to the Mars Activity Topic\
-Command: `gcloud pubsub subscriptions create mars-activities --topic projects/roigcp-mars/topics/activities`\
+Command: `gcloud pubsub subscriptions create mars-activities --topic projects/roi-mars/topics/activities`\
 Alternate (if you don't have access to topic): create a pubsub topic and subscription in your own project, and post messages for testing
 
 Run the Local Version (in Cloud Shell)\
