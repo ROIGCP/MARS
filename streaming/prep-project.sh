@@ -12,5 +12,5 @@ else
     bq mk mars
     bq mk --schema message:STRING -t mars.raw
     bq mk --schema timestamp:STRING,ipaddr:STRING,action:STRING,srcacct:STRING,destacct:STRING,amount:NUMERIC,customername:STRING -t mars.activities
-    gcloud pubsub subscriptions create mars-activities --topic projects/roi-mars/topics/activities
+    gcloud pubsub subscriptions create mars-activities --topic projects/moonbank-mars/topics/activities
 fi
