@@ -45,7 +45,7 @@ Sample Data Bucket (7x small files): `gs://mars-sample`\
 Production Data Bucket (300+ larger files): `gs://mars-production`
 
 ## Data Studio Dashboard 
-Make a Copy of this Data Studio Dashboard and adjust to your project.dataset.table\
+Make a Copy of this Looker Studio Dashboard and adjust to your project.dataset.table\
     URL: `https://datastudio.google.com/reporting/3f79b633-ac24-43b3-86c8-41f386ea514a`
 
 ## Conversion to Pub/Sub and BigQuery
