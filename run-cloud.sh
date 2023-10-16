@@ -1,4 +1,4 @@
-# MAKE SURE PROJECT IS SET
+# MAKE SURE GCP PROJECT IS SET
 # gcloud config set project PROJECT_ID
 echo $GOOGLE_CLOUD_PROJECT
 gcloud services enable dataflow.googleapis.com
