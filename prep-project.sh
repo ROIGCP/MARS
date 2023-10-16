@@ -1,5 +1,5 @@
 #! /bin/bash
-# MAKE SURE PROJECT IS SET
+# MAKE SURE GCP PROJECT IS SET
 # gcloud config set project PROJECT_ID
 if [[ -z "${GOOGLE_CLOUD_PROJECT}" ]]; then
     echo "Project has not been set! Please run:"
