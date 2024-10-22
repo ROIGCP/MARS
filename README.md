@@ -7,15 +7,23 @@ Clone in the `https://github.com/ROIGCP/Mars` repo\
     Command: `git clone https://github.com/ROIGCP/Mars`\
     Command: `cd Mars`
 
-## GETTING MARS WORKING IN CLOUDSHELL
+## GETTING MARS WORKING IN CLOUDSHELL (run prep-project.sh)
 Make sure you have a project set\
     Command: `gcloud config set project YOURPROJECTNAME`
 
 Bucket named projectid-bucket\
-    Command: `gsutil mb gs://$GOOGLE_CLOUD_PROJECT"-bucket"`
+    Command: `gcloud mb gs://$GOOGLE_CLOUD_PROJECT"-bucket"`
     
 Dataflow API enabled  (enabled via script in run-cloud.sh)\
     Command: `gcloud services enable dataflow.googleapis.com`
+
+Create a Service Account called marssa
+    Command: `gcloud iam service-accounts create marssa`
+
+Grant marssa@PROJECTID.iam.gserviceaccount.com the roles/editor 
+(NOTE: for production, reduce this permission to roles/dataflow.worker and access to resources it requires - GCS Bucket, BigQuery, etc)
+    Command: `gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member serviceAccount:marssa@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com --role roles/editor`
+    Command: `gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT --member serviceAccount:marssa@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com --role roles/dataflow.worker`
 
 BigQuery Dataset called "mars"\
     Command: `bq mk mars`

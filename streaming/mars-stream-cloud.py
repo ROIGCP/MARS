@@ -22,7 +22,8 @@ def run():
       '--region=' + region,
       '--staging_location=gs://' + bucketname + '/staging/',
       '--temp_location=gs://' + bucketname + '/temploc/',
-      '--max_num_workers=4',
+      '--max_num_workers=2',
+      '--service_account_email=marssa@' + projectname + ".iam.gserviceaccount.com"
       '--save_main_session'
     ]
 
