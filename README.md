@@ -66,19 +66,21 @@ BigQuery Dataset called `mars` and a table `raw`\
 Command: `bq mk mars`\
 Command: `bq mk --schema message:STRING -t mars.raw`
 
-Subscribe to the Mars Activity Topic\
+Subscribe to the Mars Activity Topic (if you have access to roigcp-mars project)\
 Command: `gcloud pubsub subscriptions create mars-activities --topic projects/moonbank-mars/topics/activities`\
-Alternate (if you don't have access to topic): create a pubsub topic and subscription in your own project, and post messages for testing
+Alternate (if you don't have access to topic): create a pubsub topic and subscription in your own project, and post messages for 
+Command: `gcloud pubsub topics create activities-topic`\
+Command: `gcloud pubsub subscriptions create activities-subscription --topic=activities-topic`\
 
 Run the Local Version (in Cloud Shell)\
 (also installs the required components - Review the scripts and code BEFORE running)\
 Command: `cd streaming`\
-    Command: `./run-stream-local.sh`
+Command: `./run-stream-local.sh`
 
 Run the Cloud Version (in Cloud Shell)\
 (also installs the required components)\
-    (Review the script and mars-cloud.py BEFORE running)\
-    Command: `./run-stream-cloud.sh`
+(Review the script and mars-cloud.py BEFORE running)\
+Command: `./run-stream-cloud.sh`
 
 ## CHALLENGE
 Adjust the transformation function (`processline`) to create the JSON that represents the row and adjust to insert the row into the `mars.activity` table

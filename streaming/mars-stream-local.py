@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-# SAMPLE
 import apache_beam as beam
 import os
 
 def processline(line):
     outputrow = {'message' : line}
+    print(outputrow)
     yield outputrow
-
 
 def run():
     projectname = os.getenv('GOOGLE_CLOUD_PROJECT')
@@ -26,7 +25,6 @@ def run():
      | 'Write Output' >> beam.io.WriteToBigQuery(outputtable)
      )
     p.run().wait_until_finish()
-
 
 if __name__ == '__main__':
     run()

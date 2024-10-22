@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 import apache_beam as beam
 
-
 def processline(line):
     yield line
-
 
 def run():
     argv = [
@@ -20,7 +18,6 @@ def run():
      | 'Write Output' >> beam.io.WriteToText(output)
      )
     p.run()
-
 
 if __name__ == '__main__':
     run()

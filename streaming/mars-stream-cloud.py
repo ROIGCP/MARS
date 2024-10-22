@@ -14,6 +14,7 @@ def run():
     jobname = 'mars-job-' + datetime.datetime.now().strftime("%Y%m%d%H%M")
     region = 'us-central1'
 
+    # https://cloud.google.com/dataflow/docs/reference/pipeline-options
     argv = [
       '--streaming',
       '--runner=DataflowRunner',
@@ -23,12 +24,13 @@ def run():
       '--staging_location=gs://' + bucketname + '/staging/',
       '--temp_location=gs://' + bucketname + '/temploc/',
       '--max_num_workers=2',
+      '--machine_type=e2-standard-2',
       '--service_account_email=marssa@' + projectname + ".iam.gserviceaccount.com"
       '--save_main_session'
     ]
 
     p = beam.Pipeline(argv=argv)
-    subscription = "projects/" + projectname + "/subscriptions/mars-activities"
+    subscription = "projects/" + projectname + "/subscriptions/activities-subscription"
     outputtable = projectname + ":mars.raw"
     
     print("Starting Beam Job - next step start the pipeline")
