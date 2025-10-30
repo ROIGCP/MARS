@@ -12,7 +12,7 @@ Make sure you have a project set\
     Command: `gcloud config set project YOURPROJECTNAME`
 
 Bucket named projectid-bucket\
-    Command: `gcloud mb gs://$GOOGLE_CLOUD_PROJECT"-bucket"`
+    Command: `gcloud storage mb gs://$GOOGLE_CLOUD_PROJECT"-bucket"`
     
 Dataflow API enabled  (enabled via script in run-cloud.sh)\
     Command: `gcloud services enable dataflow.googleapis.com`
