@@ -50,6 +50,7 @@ Command: `./run-cloud.sh`
 
 Buckets with Moonbank Data\
 Sample Data Bucket (7x small files): `gs://mars-sample`\
+If you are running in PluralSight there is a 5GB limit, don't run the production bucket as a source if your are running in PluralSight
 Production Data Bucket (300+ larger files): `gs://mars-production`
 
 ## Data Studio Dashboard 
