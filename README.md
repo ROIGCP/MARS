@@ -16,9 +16,10 @@ Bucket named projectid-bucket\
     
 Dataflow API enabled  (enabled via script in run-cloud.sh)\
     Command: 
-```bash gcloud services enable dataflow.googleapis.com dataflow.googleapis.com cloudfunctions.googleapis.com \
-       run.googleapis.com cloudbuild.googleapis.com eventarc.googleapis.com pubsub.googleapis.com \
-       cloudbuild.googleapis.com containerregistry.googleapis.com
+```bash 
+gcloud services enable dataflow.googleapis.com dataflow.googleapis.com cloudfunctions.googleapis.com \
+    run.googleapis.com cloudbuild.googleapis.com eventarc.googleapis.com pubsub.googleapis.com \
+    cloudbuild.googleapis.com containerregistry.googleapis.com
 ```
 
 Create a Service Account called marssa
