@@ -1,3 +1,5 @@
+![Mars Logo](assets/MARS.png)
+
 # MARS Demonstration
 Monitoring, Auditing and Reporting System (MARS)
  
