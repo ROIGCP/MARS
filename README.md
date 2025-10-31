@@ -14,7 +14,7 @@ Make sure you have a project set\
     Command: `gcloud config set project YOURPROJECTNAME`
 
 Bucket named projectid-bucket\
-    Command: `gcloud storage mb gs://$GOOGLE_CLOUD_PROJECT"-bucket"`
+    Command: `gcloud storage buckets create gs://${GOOGLE_CLOUD_PROJECT}-bucket1 --location=us-central1 --soft-delete-duration=0d`
     
 Dataflow API enabled  (enabled via script in run-cloud.sh)\
     Command: 
