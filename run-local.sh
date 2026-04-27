@@ -2,9 +2,9 @@
 # gcloud config set project PROJECT_ID
 echo $GOOGLE_CLOUD_PROJECT
 
-sudo pip3 install -r requirements.txt
+# sudo pip3 install -r requirements.txt - already run in prep-project
 gcloud storage cp gs://mars-sample/*.csv sample/
 rm -R output
 python3 mars-local.py
-gcloud storage cp output/* gs://$GOOGLE_CLOUD_PROJECT"-bucket/local/"
-bq load --replace=true mars.activities gs://$GOOGLE_CLOUD_PROJECT"-bucket/local/*" 
+# gcloud storage cp output/* gs://$GOOGLE_CLOUD_PROJECT"-bucket/local/"
+# bq load --replace=true mars.activities gs://$GOOGLE_CLOUD_PROJECT"-bucket/local/*" 
