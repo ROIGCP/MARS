@@ -17,7 +17,7 @@ def run():
      | 'Process Lines' >> beam.FlatMap(lambda line: processline(line))
      | 'Write Output' >> beam.io.WriteToText(output)
      )
-    p.run()
+     p.run().wait_until_finish()
 
 if __name__ == '__main__':
     run()
